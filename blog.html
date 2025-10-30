@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viktor Sirmer - Blogini</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <div class="logo">
+      <h1>Viktor Sirmer</h1>
+      <p>Ohjelmistökehittäjä<br>Blogini</p>
+    </div>
+    <nav>
+      <a href="index.html" class="nav-btn">Etusivu</a>
+      <a href="koulutus.html" class="nav-btn">Koulutus</a>
+      <a href="taidot.html" class="nav-btn">Taidot</a>
+      <a href="kokemus.html" class="nav-btn">Kokemus</a>
+      <a href="yhteystiedot.html" class="nav-btn">Yhteystiedot</a>
+      <a href="blog.html" class="nav-btn">Blogini</a>
+      <a href="login.html" class="nav-btn">Kirjaudu</a>
+      <a href="projektit.html" class="nav-btn">Projektit</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div id="newPostSection" class="new-post">
+  <h2>📝 Lisää uusi artikkeli</h2>
+  <form id="postForm">
+    <div class="form-group">
+      <label for="postTitle">Otsikko</label>
+      <input type="text" id="postTitle" placeholder="Kirjoita otsikko..." required>
+    </div>
+
+    <div class="form-group">
+      <label for="postContent">Sisältö</label>
+      <textarea id="postContent" placeholder="Kirjoita artikkeli tänne..." required></textarea>
+    </div>
+
+    <button type="button" id="addPostBtn">Julkaise</button>
+  </form>
+</div>
+  <section id="posts"></section>
+</main>
+
+<script>
+function loadPosts() {
+  const posts = JSON.parse(localStorage.getItem('posts')) || [];
+  const postsContainer = document.getElementById('posts');
+  postsContainer.innerHTML = posts.map(post => `
+    <article class="blog-post">
+      <h2>${post.title}</h2>
+      <p>${post.content}</p>
+      <small>${post.date}</small>
+    </article>
+  `).join('');
+}
+
+function addPost() {
+  const title = document.getElementById('postTitle').value;
+  const content = document.getElementById('postContent').value;
+  if (!title || !content) return alert("Täytä molemmat kentät!");
+
+  const posts = JSON.parse(localStorage.getItem('posts')) || [];
+  const newPost = {
+    title,
+    content,
+    date: new Date().toLocaleString()
+  };
+  posts.unshift(newPost); // добавляем сверху
+  localStorage.setItem('posts', JSON.stringify(posts));
+  loadPosts();
+  document.getElementById('postTitle').value = '';
+  document.getElementById('postContent').value = '';
+}
+
+document.getElementById('addPostBtn').addEventListener('click', addPost);
+
+if (localStorage.getItem('loggedIn') === 'true') {
+  document.getElementById('newPostSection').style.display = 'block';
+}
+
+loadPosts();
+</script>
+
+</body>
+</html>
