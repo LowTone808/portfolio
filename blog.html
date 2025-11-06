@@ -55,11 +55,11 @@
   🔹 В BIN_ID – уникальный ID твоего “контейнера”.
   🔹 Если у тебя ещё нет BIN – я покажу ниже, как его создать.
 */
-const BIN_ID = "690ccea4ae596e708f48d448"; // можешь заменить на любое имя
-const BASE_URL = `https://api.jsonbin.io/v3/b/690ccea4ae596e708f48d448`;
-const API_KEY = "$2a$10$8KXokHpWeAabuTiT/VvWM.fuGydWjyOMuvVIwn409JvYK3DGhaCjq"; // можно оставить пустым (анонимный доступ)
+const BIN_ID = "690cd104d0ea881f40d81d3f"; // можешь заменить на любое имя
+const BASE_URL = `https://api.jsonbin.io/v3/b/690cd104d0ea881f40d81d3f`;
+const API_KEY = ""; // можно оставить пустым (анонимный доступ)
 
-/*  get function */
+/*  get function from database */
 async function loadPosts() {
   try {
     const res = await fetch(BASE_URL + "/latest");
@@ -79,7 +79,7 @@ async function loadPosts() {
   }
 }
 
-/*  Add new post */
+/*  new posts */
 async function addPost() {
   const title = document.getElementById("postTitle").value;
   const content = document.getElementById("postContent").value;
@@ -91,7 +91,7 @@ async function addPost() {
     date: new Date().toLocaleString()
   };
 
-  // Get old posts
+  // get old posts
   let oldPosts = [];
   try {
     const res = await fetch(BASE_URL + "/latest");
@@ -99,10 +99,10 @@ async function addPost() {
     oldPosts = data.record || [];
   } catch {}
 
-  // new post as first
+  // new post in the beginning
   const newPosts = [newPost, ...oldPosts];
 
-  // save to JSONbin
+  // save to jsonbin
   const save = await fetch(BASE_URL, {
     method: "PUT",
     headers: {
@@ -113,27 +113,26 @@ async function addPost() {
   });
 
   if (save.ok) {
-    alert("Onnistui!");
+    alert("Posti julkaistu!");
     document.getElementById("postTitle").value = "";
     document.getElementById("postContent").value = "";
     loadPosts();
   } else {
-    alert("Virhe tallennuksessa.");
+    alert("Virhe tallennuksessa ");
   }
 }
 
-/*  listener button */
+/*  Слушатель на кнопку */
 document.getElementById("addPostBtn").addEventListener("click", addPost);
 
-/*  Show form */
+/*  show form if logged in */
 if (localStorage.getItem("loggedIn") === "true") {
   document.getElementById("newPostSection").style.display = "block";
 }
 
-/* Load posts on open*/
+/* load all posts on open*/
 loadPosts();
 </script>
 
 </body>
 </html>
-
