@@ -28,62 +28,109 @@
 </header>
 
 <main>
-  <div id="newPostSection" class="new-post">
-  <h2>📝 Lisää uusi artikkeli</h2>
-  <form id="postForm">
-    <div class="form-group">
-      <label for="postTitle">Otsikko</label>
-      <input type="text" id="postTitle" placeholder="Kirjoita otsikko..." required>
-    </div>
+  <div id="newPostSection" class="new-post" style="display:none;">
+    <h2>📝 Lisää uusi artikkeli</h2>
+    <form id="postForm">
+      <div class="form-group">
+        <label for="postTitle">Otsikko</label>
+        <input type="text" id="postTitle" placeholder="Kirjoita otsikko..." required>
+      </div>
 
-    <div class="form-group">
-      <label for="postContent">Sisältö</label>
-      <textarea id="postContent" placeholder="Kirjoita artikkeli tänne..." required></textarea>
-    </div>
+      <div class="form-group">
+        <label for="postContent">Sisältö</label>
+        <textarea id="postContent" placeholder="Kirjoita artikkeli tänne..." required></textarea>
+      </div>
 
-    <button type="button" id="addPostBtn">Julkaise</button>
-  </form>
-</div>
+      <button type="button" id="addPostBtn">Julkaise</button>
+    </form>
+  </div>
+
   <section id="posts"></section>
 </main>
 
 <script>
-function loadPosts() {
-  const posts = JSON.parse(localStorage.getItem('posts')) || [];
-  const postsContainer = document.getElementById('posts');
-  postsContainer.innerHTML = posts.map(post => `
-    <article class="blog-post">
-      <h2>${post.title}</h2>
-      <p>${post.content}</p>
-      <small>${post.date}</small>
-    </article>
-  `).join('');
+/*  
+  🔹 JSONBin – бесплатное онлайн-хранилище JSON.
+  Мы будем обращаться к нему как к базе данных.
+  🔹 В BIN_ID – уникальный ID твоего “контейнера”.
+  🔹 Если у тебя ещё нет BIN – я покажу ниже, как его создать.
+*/
+const BIN_ID = "blog-posts"; // можешь заменить на любое имя
+const BASE_URL = `https://api.jsonbin.io/v3/b/690ccea4ae596e708f48d448`;
+const API_KEY = "$2a$10$8KXokHpWeAabuTiT/VvWM.fuGydWjyOMuvVIwn409JvYK3DGhaCjq"; // можно оставить пустым (анонимный доступ)
+
+/*  get function */
+async function loadPosts() {
+  try {
+    const res = await fetch(BASE_URL + "/latest");
+    const data = await res.json();
+    const posts = data.record || [];
+
+    const postsContainer = document.getElementById("posts");
+    postsContainer.innerHTML = posts.map(p => `
+      <article class="blog-post">
+        <h2>${p.title}</h2>
+        <p>${p.content}</p>
+        <small>${p.date}</small>
+      </article>
+    `).join("");
+  } catch (e) {
+    console.log("Ei vielä postauksia tai virhe ladattaessa:", e);
+  }
 }
 
-function addPost() {
-  const title = document.getElementById('postTitle').value;
-  const content = document.getElementById('postContent').value;
+/*  Add new post */
+async function addPost() {
+  const title = document.getElementById("postTitle").value;
+  const content = document.getElementById("postContent").value;
   if (!title || !content) return alert("Täytä molemmat kentät!");
 
-  const posts = JSON.parse(localStorage.getItem('posts')) || [];
   const newPost = {
     title,
     content,
     date: new Date().toLocaleString()
   };
-  posts.unshift(newPost); // добавляем сверху
-  localStorage.setItem('posts', JSON.stringify(posts));
-  loadPosts();
-  document.getElementById('postTitle').value = '';
-  document.getElementById('postContent').value = '';
+
+  // Get old posts
+  let oldPosts = [];
+  try {
+    const res = await fetch(BASE_URL + "/latest");
+    const data = await res.json();
+    oldPosts = data.record || [];
+  } catch {}
+
+  // new post as first
+  const newPosts = [newPost, ...oldPosts];
+
+  // save to JSONbin
+  const save = await fetch(BASE_URL, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Master-Key": API_KEY
+    },
+    body: JSON.stringify(newPosts)
+  });
+
+  if (save.ok) {
+    alert("Onnistui!");
+    document.getElementById("postTitle").value = "";
+    document.getElementById("postContent").value = "";
+    loadPosts();
+  } else {
+    alert("Virhe tallennuksessa.");
+  }
 }
 
-document.getElementById('addPostBtn').addEventListener('click', addPost);
+/*  listener button */
+document.getElementById("addPostBtn").addEventListener("click", addPost);
 
-if (localStorage.getItem('loggedIn') === 'true') {
-  document.getElementById('newPostSection').style.display = 'block';
+/*  Show form */
+if (localStorage.getItem("loggedIn") === "true") {
+  document.getElementById("newPostSection").style.display = "block";
 }
 
+/* Load posts on open*/
 loadPosts();
 </script>
 
