@@ -28,7 +28,7 @@ header {
 }
 
 .header-content {
-    max-width: 1200px;
+    max-width: fit-content;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -49,43 +49,35 @@ header {
 }
 
 /* nav buttons */
-nav {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-.logoutBtn {
-    background: white;
-    color: #3a6ea5;
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: all 0.25s ease;
-    border: 2px solid white;
-}
-.logoutBtn:hover{
-    background: transparent;
-    color: white;
-    border-color: white;
-    transform: translateY(-2px);
-}
 .nav-btn {
-    background: white;
-    color: #3a6ea5;
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: all 0.25s ease;
-    border: 2px solid white;
+  background-color: #fff;
+  color: #2c5f9e;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 16px;
+  padding: 8px 16px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
+/* btn link*/
+.nav-btn:link,
+.nav-btn:visited {
+  color: #2c5f9e;
+}
+
+/* btn hover */
 .nav-btn:hover {
-    background: transparent;
-    color: white;
-    border-color: white;
-    transform: translateY(-2px);
+  background-color: #e4ebf5;
+}
+
+/* button */
+button.nav-btn {
+  font-family: inherit;
+  line-height: normal;
 }
 
 
