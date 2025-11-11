@@ -8,24 +8,7 @@
 </head>
 <body>
 
-<header>
-  <div class="header-content">
-    <div class="logo">
-      <h1>Viktor Sirmer</h1>
-      <p>Ohjelmistökehittäjä<br>Blogini</p>
-    </div>
-    <nav>
-      <a href="index.html" class="nav-btn">Etusivu</a>
-      <a href="koulutus.html" class="nav-btn">Koulutus</a>
-      <a href="taidot.html" class="nav-btn">Taidot</a>
-      <a href="kokemus.html" class="nav-btn">Kokemus</a>
-      <a href="yhteystiedot.html" class="nav-btn">Yhteystiedot</a>
-      <a href="blog.html" class="nav-btn">Blogini</a>
-      <a href="login.html" class="nav-btn">Kirjaudu</a>
-      <a href="projektit.html" class="nav-btn">Projektit</a>
-    </nav>
-  </div>
-</header>
+<script src="header.js" defer></script>
 
 <main>
   <div id="newPostSection" class="new-post" style="display:none;">
@@ -50,16 +33,15 @@
 
 <script>
 /*  
-  🔹 JSONBin – бесплатное онлайн-хранилище JSON.
-  Мы будем обращаться к нему как к базе данных.
-  🔹 В BIN_ID – уникальный ID твоего “контейнера”.
-  🔹 Если у тебя ещё нет BIN – я покажу ниже, как его создать.
+  🔹 JSONBin – free online storage JSON.
+  we use it as our simple database for blog posts.
+  🔹 В BIN_ID – unique container id 
 */
-const BIN_ID = "690cd104d0ea881f40d81d3f"; // можешь заменить на любое имя
+const BIN_ID = "690cd104d0ea881f40d81d3f";
 const BASE_URL = `https://api.jsonbin.io/v3/b/690cd104d0ea881f40d81d3f`;
-const API_KEY = "$2a$10$9LzX0kgtCjphmfvYe2VME.NrHuZvD/KwfPo0CGb7XJckhJwp5I.x2"; // можно оставить пустым (анонимный доступ)
+const API_KEY = ""; // Your JSONBin API key here
 
-/*  get function from database */
+/*   function Post load from database (GET) */
 async function loadPosts() {
   try {
     const res = await fetch(BASE_URL + "/latest");
@@ -79,7 +61,7 @@ async function loadPosts() {
   }
 }
 
-/*  new posts */
+/*  Adding new post */
 async function addPost() {
   const title = document.getElementById("postTitle").value;
   const content = document.getElementById("postContent").value;
@@ -91,7 +73,7 @@ async function addPost() {
     date: new Date().toLocaleString()
   };
 
-  // get old posts
+  // Get old posts via /latest
   let oldPosts = [];
   try {
     const res = await fetch(BASE_URL + "/latest");
@@ -99,10 +81,10 @@ async function addPost() {
     oldPosts = data.record || [];
   } catch {}
 
-  // new post in the beginning
+  // Add new post to the beginning
   const newPosts = [newPost, ...oldPosts];
 
-  // save to jsonbin
+  // Save back to JSONBin via PUT
   const save = await fetch(BASE_URL, {
     method: "PUT",
     headers: {
@@ -118,22 +100,23 @@ async function addPost() {
     document.getElementById("postContent").value = "";
     loadPosts();
   } else {
-    alert("Virhe tallennuksessa ");
+    alert("Virhe tallennuksessa.");
   }
 }
 
-/*  Слушатель на кнопку */
+/*  Listener for add post button */
 document.getElementById("addPostBtn").addEventListener("click", addPost);
 
-/*  show form if logged in */
+/*  Check for logged in and show form */
 if (localStorage.getItem("loggedIn") === "true") {
   document.getElementById("newPostSection").style.display = "block";
 }
 
-/* load all posts on open*/
+/* Load posts*/
 loadPosts();
 </script>
-
+    <footer>
+        <p>&copy; 2025 Viktor Sirmer</p>
+    </footer>
 </body>
 </html>
-
