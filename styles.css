@@ -8,6 +8,10 @@ body {
     padding: 0;
 }
 
+img.kuva {
+  height: auto;
+  width: auto;
+}
 /* main container */
 main {
     max-width: 800px;
@@ -452,4 +456,5 @@ body {
   .new-post button {
     font-size: 0.9rem;
   }
+
 }
