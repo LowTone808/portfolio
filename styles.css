@@ -7,11 +7,6 @@ body {
     margin: 0;
     padding: 0;
 }
-
-img.kuva {
-  height: auto;
-  width: auto;
-}
 /* main container */
 main {
     max-width: 800px;
@@ -458,3 +453,4 @@ body {
   }
 
 }
+
