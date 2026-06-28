@@ -1,6 +1,6 @@
 import ServiceCard from '../../components/ServiceCard/ServiceCard'
 import { services } from '../../data/services'
-
+import ContactCta from '../../components/ContactCta/ContactCta'
 import styles from './Palvelut.module.scss'
 
 function Palvelut() {
@@ -30,6 +30,7 @@ function Palvelut() {
           />
         ))}
       </div>
+      <ContactCta />
     </section>
   )
 }

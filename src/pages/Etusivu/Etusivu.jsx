@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-
 import styles from './Etusivu.module.scss'
 
 function Etusivu() {
@@ -20,9 +19,6 @@ function Etusivu() {
             Katso palvelut
           </Link>
 
-          <Link to="/yhteystiedot" className={styles.secondaryButton}>
-            Ota yhteyttä
-          </Link>
         </div>
       </div>
 
