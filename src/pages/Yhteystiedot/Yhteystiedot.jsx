@@ -21,10 +21,7 @@ function Yhteystiedot() {
       </div>
 
       <div className={styles.actions}>
-        <a
-          className={styles.primaryButton}
-          href={`mailto:${contactInfo.email}`}
-        >
+        <a className={styles.primaryButton} href={`mailto:${contactInfo.email}`}>
           Lähetä sähköposti
         </a>
 
@@ -36,6 +33,17 @@ function Yhteystiedot() {
         >
           GitHub
         </a>
+      </div>
+
+      <div className={styles.messageHelp}>
+        <h2>Mitä viestiin kannattaa kirjoittaa?</h2>
+
+        <ul>
+          <li>Mikä ongelma tai tarve sinulla on?</li>
+          <li>Tarvitsetko apua etänä vai tulenko paikan päälle?</li>
+          <li>Onko kyse tietokoneesta, nettisivusta vai digitaalisesta ratkaisusta?</li>
+          <li>Milloin apua tarvitaan?</li>
+        </ul>
       </div>
     </section>
   )

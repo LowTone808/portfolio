@@ -23,7 +23,7 @@ function Footer() {
       </div>
 
       <p className={styles.copy}>
-        © 2026 Viktor Sirmer — Human Digital Help
+        © 2026 — Human Digital Help
       </p>
     </footer>
   )

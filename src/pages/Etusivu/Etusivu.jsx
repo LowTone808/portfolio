@@ -10,7 +10,7 @@ function Etusivu() {
         <h1>Selkeää digi-apua ihmisille ja pienyrityksille</h1>
 
         <p className={styles.text}>
-          Autan tietokoneiden, nettisivujen ja pienten digitaalisten ratkaisujen
+          Apua tietokoneiden, nettisivujen ja pienten digitaalisten ratkaisujen
           kanssa nopeasti, rehellisesti ja ilman turhaa päänsärkyä.
         </p>
 

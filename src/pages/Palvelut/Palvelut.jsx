@@ -19,7 +19,7 @@ function Palvelut() {
           rehellisesti ja ilman turhaa päänsärkyä.
         </p>
       </div>
-
+<ContactCta />
       <div className={styles.services}>
         {services.map((service) => (
           <ServiceCard
@@ -51,7 +51,35 @@ function Palvelut() {
     </article>
   </div>
 </div>
-      <ContactCta />
+<div className={styles.process}>
+  <h2>Miten työ etenee?</h2>
+
+  <div className={styles.processGrid}>
+    <article className={styles.processCard}>
+      <span>1</span>
+      <h3>Tarve selvitetään</h3>
+      <p>
+        Ensin katsotaan, mikä ongelma tai tarve asiakkaalla on.
+      </p>
+    </article>
+
+    <article className={styles.processCard}>
+      <span>2</span>
+      <h3>Sovitaan työ ja hinta</h3>
+      <p>
+        Työn sisältö, aikataulu ja hinta sovitaan selkeästi etukäteen.
+      </p>
+    </article>
+
+    <article className={styles.processCard}>
+      <span>3</span>
+      <h3>Ratkaisu tehdään</h3>
+      <p>
+        Työ tehdään käytännönläheisesti ja asiakkaalle kerrotaan, mitä on tehty.
+      </p>
+    </article>
+  </div>
+</div>
     </section>
   )
 }
