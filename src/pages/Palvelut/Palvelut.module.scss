@@ -27,3 +27,41 @@
 strong {
   color: #245a99;
 }
+.prices {
+  text-align: center;
+
+  h2 {
+    color: #245a99;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.priceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.priceCard {
+  background-color: #eef4ff;
+  border: 1px solid #d9e2ef;
+  border-radius: 1rem;
+  padding: 1.5rem;
+
+  h3 {
+    color: #245a99;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    color: #333333;
+    line-height: 1.6;
+    margin-bottom: 0.4rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .priceGrid {
+    grid-template-columns: 1fr;
+  }
+}

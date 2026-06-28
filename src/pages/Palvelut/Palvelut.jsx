@@ -30,6 +30,27 @@ function Palvelut() {
           />
         ))}
       </div>
+      <div className={styles.prices}>
+  <h2>Hinnat alkaen</h2>
+
+  <div className={styles.priceGrid}>
+    <article className={styles.priceCard}>
+      <h3>Tietokoneapu</h3>
+      <p>Alkaen 20€</p>
+    </article>
+
+    <article className={styles.priceCard}>
+      <h3>Nettisivut</h3>
+      <p>Alkaen 50€</p>
+    </article>
+
+    <article className={styles.priceCard}>
+      <h3>Pienet digitaaliset ratkaisut</h3>
+      <p>Konsultointi on ilmaista</p>
+      <p>Isommista ongelmista hinnasta sovitaan erikseen</p>
+    </article>
+  </div>
+</div>
       <ContactCta />
     </section>
   )
