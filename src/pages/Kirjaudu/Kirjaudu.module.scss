@@ -1,0 +1,81 @@
+.page {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: min(100%, 28rem);
+  background-color: #ffffff;
+  border: 1px solid #d9e2ef;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 0.06);
+
+  h1 {
+    color: #245a99;
+    margin-bottom: 1rem;
+  }
+}
+
+.label {
+  color: #245a99;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.text {
+  color: #333333;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+  text-align: left;
+
+  label {
+    display: grid;
+    gap: 0.4rem;
+    color: #333333;
+    font-weight: 700;
+  }
+
+  input {
+    border: 1px solid #d9e2ef;
+    border-radius: 0.75rem;
+    padding: 0.8rem;
+    font: inherit;
+    background-color: #f4f4f8;
+  }
+
+  button {
+    border: none;
+    border-radius: 999px;
+    padding: 0.85rem 1.4rem;
+    background-color: #b8c8dc;
+    color: #ffffff;
+    font-weight: 700;
+    cursor: not-allowed;
+  }
+}
+.registerBox {
+  margin-top: 1.5rem;
+  text-align: center;
+
+  p {
+    color: #333333;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.registerLink {
+  color: #245a99;
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

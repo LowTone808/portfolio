@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 
 import MainLayout from '../layouts/MainLayout/MainLayout'
-
+import Register from '../pages/Register/Register'
 import Etusivu from '../pages/Etusivu/Etusivu'
 import CV from '../pages/CV/CV'
 import Palvelut from '../pages/Palvelut/Palvelut'
@@ -21,6 +21,7 @@ function AppRouter() {
         <Route path="blogi" element={<Blogi />} />
         <Route path="yhteystiedot" element={<Yhteystiedot />} />
         <Route path="kirjaudu" element={<Kirjaudu />} />
+        <Route path="register" element={<Register />} />
       </Route>
     </Routes>
   )

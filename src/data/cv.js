@@ -1,5 +1,5 @@
 export const profileInfo = {
-  title: 'Hei, olen Viktor Sirmer',
+  title: 'Hei 👋 olen Viktor Sirmer',
   imageAlt: 'Viktor Sirmer',
   paragraphs: [
     'Olen tieto- ja viestintätekniikan opiskelija Suomesta. Minulla on taustaa varastotyössä, rakennusalalla ja asiakaspalvelussa.',
