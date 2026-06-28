@@ -1,0 +1,97 @@
+.page {
+  display: grid;
+  gap: 2rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.label {
+  color: #245a99;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.hero h1 {
+  max-width: 45rem;
+  margin: 0 auto 1rem;
+  color: #1f2937;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.1;
+}
+
+.text {
+  max-width: 42rem;
+  margin: 0 auto;
+  color: #333333;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+  transition:
+    transform 150ms ease,
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+.primaryButton {
+  background-color: #245a99;
+  color: #ffffff;
+}
+
+.secondaryButton {
+  background-color: #eef4ff;
+  color: #245a99;
+}
+
+.primaryButton:hover,
+.secondaryButton:hover {
+  transform: translateY(-2px);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #d9e2ef;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 0.06);
+}
+
+.card h2 {
+  color: #245a99;
+  margin-bottom: 0.75rem;
+}
+
+.card p {
+  color: #333333;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+@media (max-width: 800px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}

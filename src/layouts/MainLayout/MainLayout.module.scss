@@ -1,0 +1,16 @@
+.layout {
+  min-height: 100dvh;
+  background-color: #f4f4f8;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  width: min(100% - 2rem, 900px);
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 0.08);
+  flex: 1;
+}

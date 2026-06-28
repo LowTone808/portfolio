@@ -1,0 +1,29 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.link {
+  background-color: #ffffff;
+  color: #245a99;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  transition:
+    transform 150ms ease,
+    background-color 150ms ease,
+    color 150ms ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    background-color: #eef4ff;
+  }
+}
+
+.active {
+  background-color: #245a99;
+  color: #ffffff;
+}

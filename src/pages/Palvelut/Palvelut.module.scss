@@ -1,0 +1,29 @@
+.page {
+  display: grid;
+  gap: 2rem;
+}
+
+.hero {
+  text-align: center;
+
+  h1 {
+    color: #245a99;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    max-width: 42rem;
+    margin: 0 auto 0.75rem;
+    line-height: 1.7;
+    color: #333333;
+  }
+}
+
+.services {
+  display: grid;
+  gap: 1.5rem;
+}
+
+strong {
+  color: #245a99;
+}
