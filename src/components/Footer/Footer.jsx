@@ -17,13 +17,12 @@ function Footer() {
 
         <nav className={styles.links}>
           <Link to="/palvelut">Palvelut</Link>
-          <Link to="/projektit">Projektit</Link>
           <Link to="/yhteystiedot">Yhteystiedot</Link>
         </nav>
       </div>
 
       <p className={styles.copy}>
-        © 2026 — Human Digital Help
+        © 2026 Human Digital Help
       </p>
     </footer>
   )

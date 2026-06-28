@@ -25,14 +25,6 @@ function Yhteystiedot() {
           Lähetä sähköposti
         </a>
 
-        <a
-          className={styles.secondaryButton}
-          href={contactInfo.github}
-          target="_blank"
-          rel="noreferrer"
-        >
-          GitHub
-        </a>
       </div>
 
       <div className={styles.messageHelp}>

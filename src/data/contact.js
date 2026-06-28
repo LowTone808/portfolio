@@ -14,11 +14,6 @@ export const contactMethods = [
     value: 'vikke.sirmer@gmail.com',
   },
   {
-    title: 'GitHub',
-    text: 'Katso projektejani ja koodiesimerkkejäni GitHubissa.',
-    value: 'LowTone808',
-  },
-  {
     title: 'Sijainti',
     text: 'Palvelut onnistuvat Tampereen alueella sekä etänä.',
     value: 'Tampere / Etänä',

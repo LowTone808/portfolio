@@ -4,20 +4,8 @@ export const navLinks = [
     path: '/',
   },
   {
-    title: 'CV',
-    path: '/cv',
-  },
-  {
     title: 'Palvelut',
     path: '/palvelut',
-  },
-  {
-    title: 'Projektit',
-    path: '/projektit',
-  },
-  {
-    title: 'Blogini',
-    path: '/blogi',
   },
   {
     title: 'Yhteystiedot',

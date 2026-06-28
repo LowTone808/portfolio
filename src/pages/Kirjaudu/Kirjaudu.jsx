@@ -12,7 +12,7 @@ function Kirjaudu() {
 
         <p className={styles.text}>
           Kirjautumistoiminto lisätään myöhemmin. Tällä hetkellä sivusto toimii
-          portfoliona ja palveluiden esittelysivuna.
+          palveluiden esittelysivuna.
         </p>
 
         <form className={styles.form}>
